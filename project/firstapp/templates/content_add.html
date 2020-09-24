@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/content_add.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Gamja+Flower&display=swap" rel="stylesheet">
+    <title>Content</title>
+</head>
+<body>
+    <div class="total">
+        <form action="{% url 'content_add' %}" method="POST">
+            {% csrf_token %}
+            <div class="box_info">
+                상품이름 :
+                <input name="product_name" placeholder="파실 물건이 뭔가요" type='text' />
+                가격 :
+                <input name="product_price" placeholder="가격을 입력하세요" type='text' />
+                지역 :
+                <input name="product_region" placeholder="거래 가능 지역을 적어주세요" type='text' />
+            </div>
+            <div class="bt_box">
+                <button class="bt" type="submit">Regist</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

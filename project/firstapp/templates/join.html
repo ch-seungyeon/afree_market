@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/join.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Gamja+Flower&display=swap" rel="stylesheet">
+    <title>Join</title>
+</head>
+<body>
+    <div class="total">
+        <div class="title">
+            <h1>JOIN</h1>
+        </div>
+        {% if error.state %}
+        <h2>{{error.msg}}</h2>
+        {% endif %}
+        <form class="info_box" action="{% url 'join' %}" method="POST">
+            {% csrf_token %}
+                name: 
+                <input class="info" name="username" placeholder="이름을 입력 하세요" type='text' />
+                ID: 
+                <input class="info" name="user_id" placeholder="ID를 입력 하세요" type='text' />
+                PW: 
+                <input class="info" name="user_pw" placeholder="PW를 입력 하세요" type='text' />
+                PW_confirm:
+                <input class="info" name="user_pw_check" placeholder="PW를 다시 입력 하세요" type='text' />
+                {% comment %} email:
+                <input class="info" name="useremail" placeholder="email@gmail.com" type='text' /> {% endcomment %}
+                phon number:
+                <input class="info" name="user_HP" placeholder="010-0000-0000" type='text' />
+                {% comment %} Nick name:
+                <input class="info" name="usernick" placeholder="Hippo" type='text' /> {% endcomment %}
+            </div>
+            <div class="bt_box">
+                <button class="bt" type="submit">Join</button>
+            </div>
+    </div>
+</body>
+</html>

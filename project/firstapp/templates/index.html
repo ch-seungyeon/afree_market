@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/index.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Gamja+Flower&display=swap" rel="stylesheet">
+    <title>하마</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <div class="total2">
+        <div class="out">
+            <a href="{% url 'logout' %}">로그아웃 하기 > </a>
+        </div>
+        <div class="hi">
+            <h3>{{user.get_username}} 님, 안녕하세요</h3>
+        </div>
+        <div class="pic">
+        </div>
+        <form action="{% url 'content' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="user_id" value="{{user.get_username}}">
+            <div class="bt_box">
+                <button class="bt" type="submit">상품 페이지로 ></button>
+            </div>
+        </form>
+    </div>
+    
+  {% else %}
+  {% if error.state %}
+  <h2>{{error.msg}}</h2>
+{% endif %}
+    <form action="{% url 'index' %}" method="POST">
+        {% csrf_token %}
+        <div class="total">
+            <div class="side_box">
+                <div class="txt_box">
+                    <div class="title">
+                        <h1>하</h1>
+                        <h1>마</h1>
+                    </div>
+                    <h2>Highperlocal MARCET</h2>
+                    <p>어쩌구 저쩌구 설명</p>
+                </div> 
+                    <!-- <img src="./cat.png" alt="귀여운고양이사진" /> -->
+            </div>
+            <div class="log_pic">
+                <div class="pic"></div>
+                <div class="login_box">
+                    <h1>LOG IN</h1>
+                    <div class="box_container">
+                        <div class="box">
+                            ID
+                            <input name="userid" class="id" placeholder="gildong123" type='text' />
+                            PW
+                            <input name="userpw" class="id" placeholder="*******" type='password' />
+                        </div>
+                        <div class ="bt_box">
+                            <button id="bt1" type="submit">log in</button>
+                            <a href="{% url 'join' %}" >Join > </button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    
+</body>
+</html>

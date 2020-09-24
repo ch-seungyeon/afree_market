@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/content.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Gamja+Flower&display=swap" rel="stylesheet">
+    <title>content</title>
+</head>
+<body>
+    <div class="total">
+        <div class="title">
+            <h1>상품정보</h1>
+        </div>
+        <a href="{% url 'content_add' %}">판매등록 ></a>
+    <div class="box_cont">
+        <div class="box">
+            이름            지역            가격
+        </div>
+        <div class="box">
+            {% for pro in product %}
+            {{pro.name}}   {{pro.region}}  {{pro.price}} 
+            </br>
+            {% endfor %}
+        </div>
+</body>
+</html>
